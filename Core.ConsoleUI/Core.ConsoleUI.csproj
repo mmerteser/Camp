@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Camp.Bussines\Camp.Bussines.csproj" />
+    <ProjectReference Include="..\Camp.DataAccess\Camp.DataAccess.csproj" />
+    <ProjectReference Include="..\Camp.Entities\Camp.Entities.csproj" />
+  </ItemGroup>
+
+</Project>
