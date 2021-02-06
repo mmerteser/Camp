@@ -1,15 +1,33 @@
-﻿using Camp.DataAccess.Abstract;
+﻿using Camp.Core.DataAccess.EntityFramework;
+using Camp.DataAccess.Abstract;
 using Camp.Entities.Concrete;
+using Camp.Entities.DTOs;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
+using System.Linq;
 using System.Text;
 
 namespace Camp.DataAccess.Concrete.EntityFramework
 {
-    public class EfProductDal : EFGenericRepositoryDal<Product>,IProductDal
+    public class EfProductDal : EFEntityRepositoryBase<Product, NorthwindContext>, IProductDal
     {
-       
+        public List<ProductDetailDto> GetProductDetails()
+        {
+            using (NorthwindContext context = new NorthwindContext())
+            {
+                var result = from p in context.Products
+                             join c in context.Categories on p.CategoryId equals c.CategoryId
+                             select new ProductDetailDto
+                             {
+                                 ProductId = p.ProductId,
+                                 ProductName = p.ProductName,
+                                 CategoryName = c.CategoryName,
+                                 UnitsInStock = p.UnitsInStock
+                             };
+                return result.ToList();
+            }
+        }
     }
 }

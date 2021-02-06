@@ -1,4 +1,5 @@
-﻿using Camp.Entities.Abstract;
+﻿
+using Camp.Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;

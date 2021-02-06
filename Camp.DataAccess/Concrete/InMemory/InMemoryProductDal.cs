@@ -1,5 +1,6 @@
 ﻿using Camp.DataAccess.Abstract;
 using Camp.Entities.Concrete;
+using Camp.Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -51,6 +52,11 @@ namespace Camp.DataAccess.Concrete.InMemory
         public List<Product> GetAllById(int id)
         {
             return _products.Where(p => p.CategoryId == id).ToList();
+        }
+
+        public List<ProductDetailDto> GetProductDetails()
+        {
+            throw new NotImplementedException();
         }
 
         public void Update(Product entity)
