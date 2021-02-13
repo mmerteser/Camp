@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Camp.Bussines\Camp.Bussines.csproj" />
+    <ProjectReference Include="..\Camp.Core\Camp.Core.csproj" />
+    <ProjectReference Include="..\Camp.DataAccess\Camp.DataAccess.csproj" />
+    <ProjectReference Include="..\Camp.Entities\Camp.Entities.csproj" />
+  </ItemGroup>
+
+
+</Project>

@@ -19,10 +19,20 @@ namespace Core.ConsoleUI
         private static void ProductDetailsTest()
         {
             ProductManager productManager = new ProductManager(new EfProductDal());
-            foreach (var item in productManager.GetProductDetails())
+            var result = productManager.GetProductDetails();
+            if (result.Success)
             {
-                Console.WriteLine(item.ProductName + " / " + item.CategoryName);
+                foreach (var item in result.Data)
+                {
+                    Console.WriteLine(item.ProductName + " / " + item.CategoryName);
+                }
             }
+            else
+            {
+                Console.WriteLine(result.Message); 
+            }
+
+            
         }
 
         private static void CategoryTest()
@@ -38,7 +48,7 @@ namespace Core.ConsoleUI
         {
             ProductManager productManager = new ProductManager(new EfProductDal());
 
-            foreach (var item in productManager.GetAllByUnitPrice(10, 15))
+            foreach (var item in productManager.GetAllByUnitPrice(10, 15).Data)
             {
                 Console.WriteLine(item.ProductName + " Unit Price --------------------");
             }
